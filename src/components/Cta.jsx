@@ -23,12 +23,26 @@ export default function Cta() {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   return (
-    <section id="involved" ref={ref} className="relative flex min-h-[90vh] items-center justify-center overflow-x-clip bg-brand-50 px-5 pb-32 pt-36">
+    <section id="involved" ref={ref} className="relative flex items-center justify-center overflow-x-clip bg-brand-50 px-5 pb-24 pt-28 md:min-h-[90vh] md:pb-32 md:pt-36">
       <Curve color="#eef4ff" />
       {CTA_FACES.map((f, i) => <Bubble key={f.n} f={f} idx={i} progress={scrollYProgress} />)}
       <div className="relative z-10 text-center">
+        <div className="mb-8 flex justify-center -space-x-4 md:hidden">
+          {[5, 12, 25, 33].map((n, i) => (
+            <motion.img
+              key={n}
+              src={`https://i.pravatar.cc/200?img=${n}`}
+              alt=""
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.12, duration: 0.6 }}
+              className="h-16 w-16 rounded-full border-4 border-brand-50 object-cover shadow-lg"
+            />
+          ))}
+        </div>
         <Reveal><span className="eyebrow !bg-brand-200">Take Action</span></Reveal>
-        <SplitHeading text="Join Us In Making A Difference" className="h-display mx-auto mt-6 max-w-2xl text-5xl md:text-7xl" />
+        <SplitHeading text="Join Us In Making A Difference" className="h-display mx-auto mt-6 max-w-2xl text-4xl sm:text-5xl md:text-7xl" />
         <Reveal delay={0.3} className="mt-10 flex flex-wrap items-center justify-center gap-6">
           <a href="#donate" className="btn-primary">Volunteer now</a>
           <ArrowLink href="#who">Learn more</ArrowLink>

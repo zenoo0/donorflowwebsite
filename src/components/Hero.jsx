@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowDown, QrCode } from 'lucide-react'
 import { HERO_IMG, PARTNERS } from '../data'
-import { ArrowLink } from './ui'
+import { ArrowLink, useIsMobile } from './ui'
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -21,6 +21,7 @@ function Word({ children, delay }) {
 }
 
 export default function Hero() {
+  const mobile = useIsMobile()
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 600], [0, 90])
   const scale = useTransform(scrollY, [0, 600], [1, 1.12])
@@ -31,15 +32,15 @@ export default function Hero() {
       <div className="pointer-events-none absolute -right-32 bottom-40 h-96 w-96 rounded-full bg-brand-400/20 blur-3xl animate-float" style={{ animationDelay: '2s' }} />
 
       <div className="relative mx-auto flex w-full max-w-[1400px] flex-1 flex-col items-center justify-center px-5 pb-8 pt-32 text-center">
-        <h1 className="h-display text-[clamp(3.6rem,13vw,11.5rem)] leading-[0.95]">
+        <h1 className="h-display text-[clamp(2.6rem,16vw,11.5rem)] leading-[1] md:text-[clamp(3.6rem,13vw,11.5rem)] md:leading-[0.95]">
           <span className="flex flex-wrap items-center justify-center gap-x-[0.18em]">
             <Word delay={0.2}>Donor</Word>
             <motion.span
               style={{ y, scale }}
               initial={{ width: 0, opacity: 0 }}
-              animate={{ width: 'clamp(7rem, 28vw, 25rem)', opacity: 1 }}
+              animate={{ width: mobile ? '30vw' : 'clamp(7rem, 28vw, 25rem)', opacity: 1 }}
               transition={{ duration: 1.2, delay: 0.5, ease }}
-              className="relative inline-block h-[0.5em] overflow-hidden rounded-full align-middle shadow-2xl shadow-brand-700/20"
+              className="relative inline-block h-[0.62em] overflow-hidden rounded-full align-middle md:h-[0.78em] shadow-2xl shadow-brand-700/20"
             >
               <img src={HERO_IMG} alt="" className="h-full w-full object-cover" />
               <span className="absolute inset-0 bg-gradient-to-tr from-brand-600/30 to-transparent" />
@@ -55,7 +56,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.1, ease }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-6"
+          className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-4 md:mt-10"
         >
           <a href="#donate" className="btn-primary">Donate</a>
           <ArrowLink href="#help">I need help</ArrowLink>

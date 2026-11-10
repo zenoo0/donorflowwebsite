@@ -8,7 +8,7 @@ export function Logo({ light = false, big = false }) {
       <img
         src="/logo.png"
         alt="DonorFlow by Optivise"
-        className={`w-auto select-none object-contain ${big ? 'h-20' : 'h-12'} ${light ? 'brightness-0 invert' : ''}`}
+        className={`w-auto select-none object-contain ${big ? 'h-14 sm:h-20' : 'h-9 sm:h-12'} ${light ? 'brightness-0 invert' : ''}`}
       />
     </a>
   )

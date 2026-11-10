@@ -17,7 +17,7 @@ export default function News() {
   // list is doubled so the track can loop seamlessly (moves left → right)
   const items = [...NEWS, ...NEWS]
   return (
-    <section id="news" className="relative overflow-x-clip bg-white pb-32 pt-36">
+    <section id="news" className="relative overflow-x-clip bg-white pb-24 pt-24 md:pb-32 md:pt-36">
       <Curve color="#ffffff" />
       <div className="px-5 text-center md:px-10">
         <SplitHeading text="Updates From DonorFlow" className="h-display text-4xl md:text-6xl" />

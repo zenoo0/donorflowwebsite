@@ -30,7 +30,7 @@ export default function Donate() {
   const valid = Number(amount) > 0 && agree && (anon || name.trim())
 
   return (
-    <section id="donate" className="relative overflow-x-clip bg-gradient-to-b from-brand-100 to-brand-50 px-5 pb-32 pt-36 md:px-10">
+    <section id="donate" className="relative overflow-x-clip bg-gradient-to-b from-brand-100 to-brand-50 px-5 pb-24 pt-24 md:px-10 md:pb-32 md:pt-36">
       <Curve color="#dbe8ff" />
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <Heart className="absolute -left-20 top-1/3 h-[28rem] w-[28rem] animate-float fill-white/50 text-transparent" />
@@ -40,7 +40,7 @@ export default function Donate() {
       <div className="relative mx-auto max-w-2xl text-center">
         <SplitHeading text="Your Support Makes A Life-Changing Impact" className="h-display text-4xl md:text-6xl" />
 
-        <Reveal delay={0.2} className="mt-12 rounded-[2.5rem] bg-white p-6 text-left shadow-2xl shadow-brand-700/10 md:p-10">
+        <Reveal delay={0.2} className="mt-10 rounded-[2rem] bg-white p-5 text-left shadow-2xl shadow-brand-700/10 sm:rounded-[2.5rem] sm:p-8 md:mt-12 md:p-10">
           <AnimatePresence mode="wait">
             {done ? (
               <motion.div key="done" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="flex flex-col items-center gap-4 py-16 text-center">
@@ -53,7 +53,7 @@ export default function Donate() {
               <motion.form key="form" exit={{ opacity: 0 }} onSubmit={(e) => { e.preventDefault(); if (valid) setDone(true) }} className="space-y-5">
                 <p className="text-center font-display text-lg font-extrabold">Choose amount</p>
 
-                <div className="flex items-center justify-center gap-4 text-sm">
+                <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs sm:gap-4 sm:text-sm">
                   <span className={monthly ? 'text-ink/40' : 'font-semibold'}>One-Time Donation</span>
                   <button type="button" role="switch" aria-checked={monthly} onClick={() => setMonthly(!monthly)} className={`relative h-7 w-12 rounded-full transition ${monthly ? 'bg-brand-500' : 'bg-ink/20'}`}>
                     <motion.span layout transition={{ type: 'spring', stiffness: 500, damping: 30 }} className={`absolute top-1 h-5 w-5 rounded-full bg-white shadow ${monthly ? 'right-1' : 'left-1'}`} />

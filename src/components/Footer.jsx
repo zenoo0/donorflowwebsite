@@ -12,10 +12,10 @@ const SOCIAL = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-x-clip bg-gradient-to-b from-brand-100 to-brand-200/60 px-5 pb-8 pt-28 md:px-10">
+    <footer className="relative overflow-x-clip bg-gradient-to-b from-brand-100 to-brand-200/60 px-5 pb-8 pt-24 md:px-10 md:pt-28">
       <Curve color="#dbe8ff" />
       <div className="mx-auto max-w-7xl">
-        <Reveal className="flex justify-center pb-24">
+        <Reveal className="flex justify-center pb-14 md:pb-24">
           <a href="#donate" className="btn-primary px-10 py-4">Donate</a>
         </Reveal>
 

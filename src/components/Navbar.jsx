@@ -24,7 +24,7 @@ export default function Navbar() {
         scrolled ? 'bg-white/75 py-3 shadow-sm backdrop-blur-xl' : 'py-5'
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 md:px-10">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 sm:px-5 md:px-10">
         <Logo />
         <nav className="hidden items-center gap-10 lg:flex">
           {NAV.map((n) => (
@@ -35,7 +35,7 @@ export default function Navbar() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <a href="tel:+10000000000" aria-label="Call us" className="circle-btn h-12 w-12">
+          <a href="tel:+10000000000" aria-label="Call us" className="circle-btn h-11 w-11 sm:h-12 sm:w-12">
             <Phone size={18} />
           </a>
           <a
@@ -44,7 +44,7 @@ export default function Navbar() {
           >
             Donate
           </a>
-          <button className="circle-btn h-12 w-12 lg:hidden" onClick={() => setOpen(!open)} aria-label="Menu">
+          <button className="circle-btn h-11 w-11 sm:h-12 sm:w-12 lg:hidden" onClick={() => setOpen(!open)} aria-label="Menu">
             {open ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>

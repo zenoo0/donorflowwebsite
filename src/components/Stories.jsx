@@ -38,7 +38,7 @@ export default function Stories() {
   }, [j, n])
 
   return (
-    <section id="stories" className="relative overflow-x-clip bg-gradient-to-b from-white to-brand-50 pb-32 pt-36">
+    <section id="stories" className="relative overflow-x-clip bg-gradient-to-b from-white to-brand-50 pb-24 pt-24 md:pb-32 md:pt-36">
       <Curve color="#ffffff" />
       <div className="mx-auto max-w-7xl px-5 text-center md:px-10">
         <SplitHeading text="Inspiring Journeys Of Strength And Hope" className="h-display mx-auto max-w-2xl text-4xl md:text-6xl" />

@@ -22,7 +22,7 @@ export default function GetHelp() {
   const fmt = (v) => v.replace(/\D/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
 
   return (
-    <section id="help" ref={ref} className="relative overflow-x-clip bg-brand-900 px-5 pb-32 pt-24 text-white md:px-10">
+    <section id="help" ref={ref} className="relative overflow-x-clip bg-brand-900 px-5 pb-20 pt-20 text-white md:px-10 md:pb-32 md:pt-24">
       <Curve color="#0e275f" />
       <div className="absolute inset-0 overflow-hidden">
         <motion.div style={{ y: bgY }} className="absolute inset-[-10%]">
@@ -100,6 +100,22 @@ export default function GetHelp() {
             </form>
           )}
         </Reveal>
+
+        {/* mobile / tablet photo strip */}
+        <div className="flex justify-center gap-3 lg:hidden">
+          {[47, 5, 12, 25].map((n, i) => (
+            <motion.img
+              key={n}
+              src={`https://i.pravatar.cc/300?img=${n}`}
+              alt=""
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.12, duration: 0.7 }}
+              className={`h-28 w-[22%] max-w-[9rem] rounded-3xl border border-white/30 object-cover shadow-xl ${i % 2 ? 'mt-6' : ''}`}
+            />
+          ))}
+        </div>
 
         <div className="relative hidden h-[34rem] lg:block">
           {[

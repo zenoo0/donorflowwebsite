@@ -31,7 +31,7 @@ function Footer({ f }) {
 
 export default function WhatWeDo() {
   return (
-    <section id="what" className="relative bg-white px-5 py-28 md:px-10">
+    <section id="what" className="relative overflow-x-clip bg-white px-5 py-20 md:px-10 md:py-28">
       <Curve color="#ffffff" />
       <div className="mx-auto max-w-7xl">
         <div className="text-center">
@@ -40,7 +40,7 @@ export default function WhatWeDo() {
           <Reveal delay={0.3} className="mt-8 flex justify-center"><ArrowLink href="#who">Learn more</ArrowLink></Reveal>
         </div>
 
-        <div className="mt-20 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:mt-20 lg:grid-cols-3">
           {SERVICES.map((s, i) => {
             const Icon = ICONS[i]
             return (
@@ -52,12 +52,12 @@ export default function WhatWeDo() {
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.9, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={{ y: -8 }}
-                className="card group relative flex min-h-[26rem] flex-col justify-between overflow-hidden p-7 transition-colors duration-500 hover:border-brand-200"
+                className="card group relative flex min-h-[22rem] flex-col lg:min-h-[26rem] justify-between overflow-hidden p-7 transition-colors duration-500 hover:border-brand-200"
               >
                 <span className="absolute inset-0 -z-0 bg-gradient-to-b from-brand-100 to-white opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="relative">
                   <span className="grid h-12 w-12 place-items-center rounded-full bg-brand-50 text-brand-600 transition group-hover:bg-white"><Icon size={20} /></span>
-                  <h3 className="mt-16 font-display text-2xl font-extrabold">{s.title}</h3>
+                  <h3 className="mt-12 font-display text-2xl md:mt-16 font-extrabold">{s.title}</h3>
                   <p className="mt-3 leading-relaxed text-ink/70">{s.text}</p>
                 </div>
                 <div className="relative flex items-center justify-between">
