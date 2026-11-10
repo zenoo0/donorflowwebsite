@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { @apply bg-white font-sans text-ink antialiased; overflow-x: hidden; }
+
+@layer components {
+  .eyebrow { @apply inline-block rounded-lg bg-brand-100 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-700; }
+  .h-display { @apply font-display font-extrabold leading-[1.05] tracking-tight; }
+  .btn-primary { @apply inline-flex items-center justify-center rounded-full bg-brand-500 px-7 py-3.5 text-xs font-semibold uppercase tracking-widest text-white shadow-lg shadow-brand-500/30 transition hover:-translate-y-0.5 hover:bg-brand-600 active:translate-y-0; }
+  .btn-ghost { @apply inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-widest; }
+  .circle-btn { @apply grid h-11 w-11 shrink-0 place-items-center rounded-full border border-ink/15 transition hover:border-brand-500 hover:bg-brand-500 hover:text-white; }
+  .card { @apply rounded-[2rem] border border-ink/10 bg-white; }
+}
+
+/* News strip: continuously moves left -> right */
+@keyframes news-slide-right {
+  from { transform: translate3d(-50%, 0, 0); }
+  to   { transform: translate3d(0, 0, 0); }
+}
+.news-track { animation: news-slide-right 45s linear infinite; will-change: transform; }
+.news-track:hover { animation-play-state: paused; }
+
+::selection { background: #2f6bff; color: #fff; }
